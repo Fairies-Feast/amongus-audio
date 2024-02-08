@@ -1,5 +1,5 @@
-import subprocess
-subprocess.run(['pip', 'install', 'flask'])
+import os
+os.system("pip install flask")
 from flask import Flask, render_template
 
 app = Flask('app')
