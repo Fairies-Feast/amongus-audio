@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Among Us Audio</title>
+</head>
+
+<body>
+  <h1 id='call'>Please click to enable audio</h1>
+  <script>
+    document.onclick=function() {
+      try {document.getElementById('call').remove()} catch(err) {}
+      var isPlaying = false
+      var audioS = new Audio("static/theme.mp3")
+      async function dostuff() {
+        var response = await fetch("/status");
+        var status = await response.text();
+        if (status == "False" && isPlaying == true) {
+          isPlaying = false
+          audioS.currentTime = 0;
+          audioS.pause();
+        } else if (status == "True" && isPlaying == false) {
+          isPlaying = true
+          audioS.play()
+        }
+      }
+
+      setInterval(dostuff, 3000); // 3sec
+    }
+  </script>
+</body>
+
+</html>
