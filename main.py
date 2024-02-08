@@ -1,5 +1,4 @@
-Flask = __import__("flask").Flask
-render_template = __import__("flask").render_template
+from flask import Flask, render_template
 
 app = Flask('app')
 playAudio = False
