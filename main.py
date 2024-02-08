@@ -1,6 +1,5 @@
-import os
-os.system("pip install flask")
-from flask import Flask, render_template
+Flask = __import__("flask").Flask
+render_template = __import__("flask").render_template
 
 app = Flask('app')
 playAudio = False
